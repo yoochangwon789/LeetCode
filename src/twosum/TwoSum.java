@@ -10,26 +10,23 @@ public class TwoSum {
 
         TwoSum twoSum = new TwoSum();
 
-        System.out.println(twoSum.twoSumSolution(nums, 8));
+        int[] answer = twoSum.twoSumSolution(nums, 8);
+
+        for(int i = 0; i < answer.length; i++) {
+            System.out.println(answer[i]);
+        }
     }
 
-    public ArrayList<Integer> twoSumSolution(int[] nums, int target) {
-        int cnt1 = 0;
-        int cnt2 = 0;
+    public int[] twoSumSolution(int[] nums, int target) {
+        int[] answer = {};
 
         for (int i = 0; i < nums.length; i++) {
-            for (int j= 1; j < nums.length; j++) {
+            for (int j= i + 1; j < nums.length; j++) {
                 if (nums[i] + nums[j] == target) {
-                    cnt1 = Arrays.binarySearch(nums, nums[i]);
-                    cnt2 = Arrays.binarySearch(nums, nums[j]);
+                    answer = new int[]{i, j};
                 }
             }
         }
-
-        ArrayList<Integer> arrayList = new ArrayList<>();
-        arrayList.add(cnt1);
-        arrayList.add(cnt2);
-
-        return arrayList;
+        return answer;
     }
 }
