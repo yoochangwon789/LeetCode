@@ -19,7 +19,7 @@ public class RomanToInteger {
         romanCharDict.put('M', 1000);
 
         for (int i = 0; i < s.length(); i++) {
-            if (i == 0 || romanCharDict.get(s.charAt(i)) >= romanCharDict.get(s.charAt(i + 1))) {
+            if (i == 0 || romanCharDict.get(s.charAt(i)) >= romanCharDict.get(s.charAt(i - 1))) {
                 result += romanCharDict.get(s.charAt((i)));
             } else {
                 result += romanCharDict.get(s.charAt((i + 1))) - romanCharDict.get(s.charAt((i)));
