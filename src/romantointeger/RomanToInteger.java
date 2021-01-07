@@ -6,8 +6,11 @@ import java.util.Map;
 public class RomanToInteger {
     public static void main(String[] args) {
 
-        String s = "IV";
-        int result = 0;
+        System.out.println(romanToInt("MCMXCIV"));
+    }
+
+    public static int romanToInt(String s) {
+        int answer = 0;
 
         Map<Character, Integer> romanCharDict = new HashMap<>();
         romanCharDict.put('I', 1);
@@ -19,17 +22,13 @@ public class RomanToInteger {
         romanCharDict.put('M', 1000);
 
         for (int i = 0; i < s.length(); i++) {
-            if (i == 0 || romanCharDict.get(s.charAt(i)) >= romanCharDict.get(s.charAt(i - 1))) {
-                result += romanCharDict.get(s.charAt((i)));
+            if (i == 0 || romanCharDict.get(s.charAt(i)) <= romanCharDict.get(s.charAt(i - 1))) {
+                answer += romanCharDict.get(s.charAt(i));
             } else {
-                result += romanCharDict.get(s.charAt((i + 1))) - romanCharDict.get(s.charAt((i)));
+                answer += romanCharDict.get(s.charAt(i)) - 2 * romanCharDict.get(s.charAt(i - 1));
             }
         }
-        System.out.println(result);
-    }
 
-    public int romanToInt(String s) {
-        int answer = 0;
         return  answer;
     }
 }
