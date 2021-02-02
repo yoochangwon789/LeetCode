@@ -19,6 +19,7 @@ public class SmallerNumber {
 
         int top = 0;
 
+        // 큐 방식을 이용한 나 자신보다 작은 숫자를 찾고 카운트 하기
         while (true) {
             int cnt = 0;
 
