@@ -9,21 +9,26 @@ public class IntegerMapping {
     }
 
     public static String freqAlphabets(String s) {
-        String answer = "";
+        StringBuilder res = new StringBuilder();
 
-        Map<Character, Integer> characterIntegerMap = new HashMap<>();
-
-        char aToI = 'a';
-        int iaToI = 1;
-
-        for (int i = 0; i < 9; i++) {
-            characterIntegerMap.put(aToI, iaToI);
-            aToI++;
-            iaToI++;
+        for(int i=s.length()-1;i>=0;i--)
+        {
+            if(s.charAt(i) != '#')
+            {
+                res.append(resultGen(s.substring(i,i+1)));
+            }
+            else
+            {
+                res.append(resultGen(s.substring(i-2,i)));
+                i-=2;
+            }
         }
+        return res.reverse().toString();
+    }
 
-        System.out.println(characterIntegerMap.get('a'));
-
-        return answer;
+    public static char resultGen(String str)
+    {
+        int res = Integer.parseInt(str);
+        return (char)(res+96);
     }
 }
