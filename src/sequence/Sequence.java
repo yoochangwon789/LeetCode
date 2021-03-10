@@ -23,6 +23,8 @@ public class Sequence {
         int cnt = 0;
 
         for (int i = 1; i < integerList.size(); i++) {
+            int a = arr[i - 1] - arr[i];
+
         }
 
         return true;
